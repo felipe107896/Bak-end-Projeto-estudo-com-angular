@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.pessoa.Model.Pessoa;
 import com.pessoa.ServiceImpl.PessoaServiceImpl;
+import com.pessoa.service.PessoaService;
 
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
@@ -28,38 +29,38 @@ import lombok.extern.slf4j.Slf4j;
 public class PessoaController {
 	
 	@Autowired
-	private PessoaServiceImpl pessoaServiceImpl;
+	private PessoaService pessoaService;
 	
 	@RequestMapping(value="/pessoa", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Pessoa> salvar(@RequestBody final Pessoa pessoa) {
 		log.info("fazendo a requisição para criação dos dados da pessoa ");
-		pessoaServiceImpl.savePessoa(pessoa);
+		pessoaService.savePessoa(pessoa);
 		return new ResponseEntity<>(pessoa, HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(value="/pessoa", method = RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Pessoa> atualizar(@RequestBody final Pessoa pessoa) {
 		log.info("fazendo a requisição para criação dos dados da pessoa ");
-		pessoaServiceImpl.savePessoa(pessoa);
+		pessoaService.savePessoa(pessoa);
 		return new ResponseEntity<>(pessoa, HttpStatus.CREATED);
  
 	}
 	
 	@RequestMapping(value="/pessoa", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<Pessoa>> consultar() {
-		List<Pessoa> pessoas = pessoaServiceImpl.findPessoas();
+		List<Pessoa> pessoas = pessoaService.findPessoas();
 		return new ResponseEntity<>(pessoas, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/pessoa/{codigo}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Pessoa> buscar(@PathVariable("codigo") Integer codigo) {
-		final Pessoa pessoa = pessoaServiceImpl.findPessoa(codigo);
+		final Pessoa pessoa = pessoaService.findPessoa(codigo);
 		return new ResponseEntity<>(pessoa, HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(value="/pessoa/{codigo}", method = RequestMethod.DELETE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Integer> excluir(@PathVariable("codigo") Integer codigo){
-		pessoaServiceImpl.deletePessoa(codigo);
+		pessoaService.deletePessoa(codigo);
 		return new ResponseEntity<>(codigo, HttpStatus.CREATED);
 	}
 		

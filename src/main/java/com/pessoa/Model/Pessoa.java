@@ -1,4 +1,6 @@
 package com.pessoa.Model;
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,4 +26,14 @@ public class Pessoa {
  
 	@Column(name="ativo")
 	private String ativo;
+	
+	@Column(name="data")
+	private LocalDate data;
+	
+	@Column(name="telefone")
+	private String telefone;
+	
+	@Column(name="cpf")
+	private String cpf;
+
 }
