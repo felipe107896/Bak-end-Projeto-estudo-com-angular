@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pessoa.Mapper.PessoaRequestMapper;
 import com.pessoa.Model.Pessoa;
+import com.pessoa.Request.PessoaRequest;
 import com.pessoa.ServiceImpl.PessoaServiceImpl;
 import com.pessoa.service.PessoaService;
 
@@ -31,18 +33,21 @@ public class PessoaController {
 	@Autowired
 	private PessoaService pessoaService;
 	
+	@Autowired
+	private PessoaRequestMapper pessoaMapper;
+	
 	@RequestMapping(value="/pessoa", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<Pessoa> salvar(@RequestBody final Pessoa pessoa) {
+	public ResponseEntity<PessoaRequest> salvar(@RequestBody final PessoaRequest pessoaRequest) {
 		log.info("fazendo a requisição para criação dos dados da pessoa ");
-		pessoaService.savePessoa(pessoa);
-		return new ResponseEntity<>(pessoa, HttpStatus.CREATED);
+		pessoaService.savePessoa(pessoaMapper.toPessoa(pessoaRequest));
+		return new ResponseEntity<>(pessoaRequest, HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(value="/pessoa", method = RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<Pessoa> atualizar(@RequestBody final Pessoa pessoa) {
+	public ResponseEntity<PessoaRequest> atualizar(@RequestBody final PessoaRequest pessoaRequest) {
 		log.info("fazendo a requisição para criação dos dados da pessoa ");
-		pessoaService.savePessoa(pessoa);
-		return new ResponseEntity<>(pessoa, HttpStatus.CREATED);
+		 pessoaService.savePessoa(pessoaMapper.toPessoa(pessoaRequest));
+		return new ResponseEntity<>(pessoaRequest, HttpStatus.CREATED);
  
 	}
 	
@@ -55,7 +60,7 @@ public class PessoaController {
 	@RequestMapping(value="/pessoa/{codigo}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Pessoa> buscar(@PathVariable("codigo") Integer codigo) {
 		final Pessoa pessoa = pessoaService.findPessoa(codigo);
-		return new ResponseEntity<>(pessoa, HttpStatus.CREATED);
+		return new ResponseEntity<>(pessoa, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/pessoa/{codigo}", method = RequestMethod.DELETE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)

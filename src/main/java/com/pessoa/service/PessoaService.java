@@ -2,7 +2,10 @@ package com.pessoa.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.pessoa.Model.Pessoa;
+
 
 public interface PessoaService {
 	
