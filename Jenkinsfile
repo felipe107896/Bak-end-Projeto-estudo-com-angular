@@ -6,7 +6,7 @@ pipeline {
  	 agent any
          steps {
 	 withSonarQubeEnv('My SonarQube Server') {
-                sh 'C:\Users\ANTONIO\Documents\sonar-scanner-4.2.0.1873-windows\bin'
+                sh 'C:/Users/ANTONIO/Documents/sonar-scanner-4.2.0.1873-windows/bin/sonar-scanner'
              }
           }
       }
