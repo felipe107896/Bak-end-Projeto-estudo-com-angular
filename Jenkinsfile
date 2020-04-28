@@ -2,6 +2,12 @@ pipeline {
     agent any
      
     stages {
+    stage('Unit tests') {
+       steps {
+        sh 'mvn clean test'
+    }   
+ }
+    
 	stage("build & SonarQube analysis"){
  	 agent any
          steps {
