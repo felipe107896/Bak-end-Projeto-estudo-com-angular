@@ -4,7 +4,7 @@ pipeline {
     stages {
     stage('Unit tests') {
        steps {
-        sh 'mvn clean test'
+        bat 'mvn clean test'
     }   
  }
     
@@ -12,7 +12,7 @@ pipeline {
  	 agent any
          steps {
 	 withSonarQubeEnv('My SonarQube Server') {
-                sh 'C:/Users/ANTONIO/Documents/sonar-scanner-4.2.0.1873-windows/bin/sonar-scanner'
+                bat 'C:/Users/ANTONIO/Documents/sonar-scanner-4.2.0.1873-windows/bin/sonar-scanner'
              }
           }
       }
