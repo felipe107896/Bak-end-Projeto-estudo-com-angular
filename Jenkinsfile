@@ -4,7 +4,12 @@ pipeline {
     stages {
     stage('Unit tests') {
        steps {
-        call mvn clean test
+       // Run the maven build
+                if (isUnix()) {
+                    sh "'${mvnHome}/bin/mvn' clean test -Dtest=TestRunner"
+                } else {
+                    bat(/"${C:\Users\ANTONIO\eclipse-workspace\maven\apache-maven-3.5.2}\bin\mvn" clean test -Dtest=TestRunner/)
+                }
     }   
  }
     
