@@ -5,7 +5,7 @@ pipeline {
         jdk 'jdk8'
     }
     
-    setx  M2_HOME=C:/Users/ANTONIO/eclipse-workspace/maven/apache-maven-3.5.2 # your Mavan home path
+    setx  M2_HOME='C:/Users/ANTONIO/eclipse-workspace/maven/apache-maven-3.5.2'
 setx  PATH=$PATH:$M2_HOME/bin
 mvn --version
 
