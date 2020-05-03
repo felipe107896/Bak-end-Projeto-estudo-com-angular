@@ -1,13 +1,5 @@
 pipeline {
     agent any
-     tools {
-        maven 'Maven 3.3.9'
-        jdk 'jdk8'
-    }
-    
-    setx  M2_HOME='C:/Users/ANTONIO/eclipse-workspace/maven/apache-maven-3.5.2'
-setx  PATH=$M2_HOME/bin
-bat 'mvn --version'
 
     stages {
     stage('Unit tests') {
@@ -16,7 +8,9 @@ bat 'mvn --version'
               //  if (isUnix()) {
                   //  sh "'${mvnHome}/bin/mvn' clean test -Dtest=TestRunner"
                // } else {
-                    bat 'mvn clean test'
+                       M2_HOME='C:/Users/ANTONIO/eclipse-workspace/maven/apache-maven-3.5.2'
+  PATH=$M2_HOME/bin
+bat 'mvn --version'
                // }
     }   
  }
