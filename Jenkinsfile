@@ -1,7 +1,5 @@
 pipeline {
     agent any
-
-    mvn clean test
      
     stages {
     stage('Unit tests') {
