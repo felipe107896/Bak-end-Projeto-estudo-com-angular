@@ -1,6 +1,14 @@
 pipeline {
     agent any
-     
+     tools {
+        maven 'Maven 3.3.9'
+        jdk 'jdk8'
+    }
+    
+    setx  M2_HOME=C:/Users/ANTONIO/eclipse-workspace/maven/apache-maven-3.5.2 # your Mavan home path
+setx  PATH=$PATH:$M2_HOME/bin
+mvn --version
+
     stages {
     stage('Unit tests') {
        steps {
