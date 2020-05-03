@@ -2,8 +2,8 @@ pipeline {
     agent any
     export M2_HOME='C:/Users/ANTONIO/eclipse-workspace/maven/apache-maven-3.5.2'
 export PATH=$M2_HOME/bin
- bat 'mvn clean test'
- 
+mvn clean test
+     
     stages {
     stage('Unit tests') {
        steps {
