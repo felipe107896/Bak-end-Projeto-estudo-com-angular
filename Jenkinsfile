@@ -8,8 +8,7 @@ pipeline {
                 if (isUnix()) {
                     sh "'${mvnHome}/bin/mvn' clean test -Dtest=TestRunner"
                 } else {
-                    bat 'cd C:\Program Files (x86)\Jenkins\workspace\Pessoa' 
-                    bat 'mvn clean install'
+                    bat 'mvn clean test'
                 }
     }   
  }
