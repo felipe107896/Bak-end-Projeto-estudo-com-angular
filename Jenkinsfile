@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    export M2_HOME=C:\Users\ANTONIO\eclipse-workspace\maven\apache-maven-3.5.2 # your Mavan home path
+    export M2_HOME='C:\Users\ANTONIO\eclipse-workspace\maven\apache-maven-3.5.2' # your Mavan home path
 export PATH=$PATH:$M2_HOME/bin
 mvn --version
      
