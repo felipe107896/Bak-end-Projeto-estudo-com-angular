@@ -7,7 +7,7 @@ pipeline {
     
     setx  M2_HOME='C:/Users/ANTONIO/eclipse-workspace/maven/apache-maven-3.5.2'
 setx  PATH=$M2_HOME/bin
-mvn --version
+bat 'mvn --version'
 
     stages {
     stage('Unit tests') {
