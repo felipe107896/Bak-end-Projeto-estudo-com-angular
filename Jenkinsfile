@@ -5,11 +5,11 @@ pipeline {
     stage('Unit tests') {
        steps {
        // Run the maven build
-                if (isUnix()) {
-                    sh "'${mvnHome}/bin/mvn' clean test -Dtest=TestRunner"
-                } else {
+              //  if (isUnix()) {
+                  //  sh "'${mvnHome}/bin/mvn' clean test -Dtest=TestRunner"
+               // } else {
                     bat 'mvn clean test'
-                }
+               // }
     }   
  }
     
