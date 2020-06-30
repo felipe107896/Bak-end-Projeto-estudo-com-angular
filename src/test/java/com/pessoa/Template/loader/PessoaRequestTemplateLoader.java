@@ -2,8 +2,8 @@ package com.pessoa.Template.loader;
 
 import java.time.LocalDate;
 
-import com.pessoa.Model.Pessoa;
-import com.pessoa.Request.PessoaRequest;
+import com.pessoa.model.Pessoa;
+import com.pessoa.request.PessoaRequest;
 
 import br.com.six2six.fixturefactory.Fixture;
 import br.com.six2six.fixturefactory.Rule;

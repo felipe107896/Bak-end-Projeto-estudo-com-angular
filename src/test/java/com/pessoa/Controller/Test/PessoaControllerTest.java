@@ -25,9 +25,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.google.gson.Gson;
-
-import com.pessoa.Model.Pessoa;
-import com.pessoa.Request.PessoaRequest;
+import com.pessoa.model.Pessoa;
+import com.pessoa.request.PessoaRequest;
 import com.pessoa.service.PessoaService;
 
 import br.com.six2six.fixturefactory.Fixture;

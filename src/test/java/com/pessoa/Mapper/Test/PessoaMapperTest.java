@@ -11,9 +11,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.pessoa.Mapper.PessoaRequestMapper;
-import com.pessoa.Model.Pessoa;
-import com.pessoa.Request.PessoaRequest;
+import com.pessoa.mapper.PessoaRequestMapper;
+import com.pessoa.model.Pessoa;
+import com.pessoa.request.PessoaRequest;
 
 import br.com.six2six.fixturefactory.Fixture;
 import br.com.six2six.fixturefactory.loader.FixtureFactoryLoader;

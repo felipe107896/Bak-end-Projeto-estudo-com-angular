@@ -1,4 +1,4 @@
-package com.pessoa.ServiceImpl;
+package com.pessoa.service.impl;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pessoa.Exception.ResourceNotFoundException;
-import com.pessoa.Model.Pessoa;
-import com.pessoa.Repository.PessoaRepository;
+import com.pessoa.exception.ResourceNotFoundException;
+import com.pessoa.model.Pessoa;
+import com.pessoa.repository.PessoaRepository;
 import com.pessoa.service.PessoaService;
 
 @Service
@@ -35,11 +35,8 @@ public class PessoaServiceImpl implements PessoaService {
 
 	@Override
 	public Pessoa findPessoa(final Integer codigo) {
-			final Pessoa pessoa = pessoaRepository.findById(codigo).get();
+			final Pessoa pessoa = pessoaRepository.findById(codigo).orElseThrow(() -> new ResourceNotFoundException("Pessoa não encontrado "));
 	
-			if(Objects.isNull(pessoa)) {
-				throw new ResourceNotFoundException("Codigo não encontrado ");
-			}
 			return pessoa;
 }
 

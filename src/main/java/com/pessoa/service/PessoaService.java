@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.pessoa.Model.Pessoa;
+import com.pessoa.model.Pessoa;
 
 
 public interface PessoaService {

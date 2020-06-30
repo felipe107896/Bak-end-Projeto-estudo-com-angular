@@ -1,4 +1,4 @@
-package com.pessoa.Exception;
+package com.pessoa.exception;
 
 public class ResourceNotFoundException extends RuntimeException {
 	

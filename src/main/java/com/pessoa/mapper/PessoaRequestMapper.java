@@ -1,11 +1,11 @@
-package com.pessoa.Mapper;
+package com.pessoa.mapper;
 
 import java.time.LocalDate;
 
 import org.springframework.stereotype.Component;
 
-import com.pessoa.Model.Pessoa;
-import com.pessoa.Request.PessoaRequest;
+import com.pessoa.model.Pessoa;
+import com.pessoa.request.PessoaRequest;
 
 @Component
 public class PessoaRequestMapper {

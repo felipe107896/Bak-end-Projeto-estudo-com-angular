@@ -1,12 +1,11 @@
-package com.pessoa.Request;
+package com.pessoa.vo;
 
 import lombok.Data;
 
 @Data
-public class PessoaRequest {
-	
+public class PessoaVO {
 	private Integer codigo;
- 
+	 
 	private String  nome;
  
 	private String ativo;
