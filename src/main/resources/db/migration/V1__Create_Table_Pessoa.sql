@@ -1,4 +1,4 @@
-CREATE TABLE tb_pessoa
+CREATE TABLE IF NOT EXISTS tb_pessoa
 (
   id_pessoa integer NOT NULL,
   nome character(80),
