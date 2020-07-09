@@ -54,7 +54,7 @@ public class UserController implements UserDetailsService {
 	}
 	
 	@Autowired
-	private UserService pessoaService;
+	private UserDetailsService pessoaService;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
