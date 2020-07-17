@@ -1,22 +1,31 @@
-version: '3.1'
+version: '3.4'
 services:
-    app:
-     container_name: pessoa
-     image: pessoa4-application
-     build: ./
-     ports:
-      - "8080:8080"
-     depends_on:
-         - postgres
-        
-    postgres:
-      container_name: pessoa4-springboot-postgresql
-      image: postgres
+     app:
+        container_name: pessoa
+        image: pessoa4-application
+        build: C:\Users\ANTONIO\Documents\Bak-end-Projeto-estudo-com-angular
+        ports:
+            - "8888:8888"
+        links:
+            - db
+        depends_on:
+            - db
+     db:
+      container_name: postgres-pessoa
+      image: postgres:latest
       environment:
-      - POSTGRES_PASSWORD=123456
+      - POSTGRES_PASSWORD=123
       - POSTGRES_USER=postgres
       - POSTGRES_DB=postgres
       volumes: 
         - ./postgres:/var/lib/postgresql
+      build: .
       ports:
-        - "5433:5433"
+        - "5433:5435"
+      restart: always
+      networks:
+        - pessoa-network          
+networks:
+    pessoa-network:
+        driver: bridge
+        

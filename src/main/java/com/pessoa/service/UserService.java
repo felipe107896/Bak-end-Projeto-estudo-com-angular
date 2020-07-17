@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.pessoa.converter.vo.DozerConverter;
 import com.pessoa.mapper.PessoaRequestMapper;
 import com.pessoa.model.Pessoa;
+import com.pessoa.model.User;
 import com.pessoa.repository.UserRepository;
 import com.pessoa.request.PessoaRequest;
 import com.pessoa.service.PessoaService;
@@ -39,8 +40,7 @@ import com.pessoa.vo.PessoaVO;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.experimental.var;
-import lombok.extern.slf4j.Slf4j;
+
 
 
 @Service
@@ -58,7 +58,7 @@ public class UserService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
-		var userName = userRepository.findByUsername(username);
+		User userName = userRepository.findByUsername(username);
 		if(userName != null) {
 		 return userName;
 		} else {

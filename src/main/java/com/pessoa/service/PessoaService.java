@@ -2,9 +2,12 @@ package com.pessoa.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.pessoa.model.Pessoa;
+import com.pessoa.vo.PessoaVO;
 
 
 public interface PessoaService {
@@ -17,7 +20,12 @@ public interface PessoaService {
 	
 	public Pessoa findPessoa(final Integer codigo);
 	
-	public List<Pessoa> findPessoas();
+
+	public Pessoa disablePessoa(final Integer codigo);
+	
+	public Page<PessoaVO> findPessoas(Pageable pageable);
+	
+	
 	
 	
 

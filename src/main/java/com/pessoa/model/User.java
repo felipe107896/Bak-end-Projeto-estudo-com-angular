@@ -20,7 +20,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User implements UserDetails,Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -32,10 +32,10 @@ public class User implements UserDetails,Serializable {
 	@Column(name = "description")
 	private String description;
 	
-	@Column(name = "username", unique=true)
+	@Column(name = "user_name", unique=true)
 	private String username;
 	
-	@Column(name = "fullname")
+	@Column(name = "full_name")
 	private String fullname;
 	
 	@Column(name = "password")

@@ -4,6 +4,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 import static org.springframework.http.ResponseEntity.ok;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pessoa.converter.vo.DozerConverter;
+import com.pessoa.model.Permission;
 import com.pessoa.model.User;
 import com.pessoa.repository.UserRepository;
 import com.pessoa.request.PessoaRequest;
@@ -33,11 +35,10 @@ import com.pessoa.service.UsersService;
 import com.pessoa.vo.PessoaVO;
 
 import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
+
 
 @RestController
 @RequestMapping("/auth")
-@Slf4j
 public class AuthController {
 	
 	@Autowired
@@ -55,13 +56,11 @@ public class AuthController {
 	
 	
 	@ApiOperation(value ="Authentication a user by credentials")
-	@PostMapping(value="v1",consumes = {"application/json","application/xml","application/x-yaml" }, produces = {"application/json","application/xml","application/x-yaml" })
+	@PostMapping(value="v1" ,consumes = {"application/json","application/xml","application/x-yaml" }, produces = {"application/json","application/xml","application/x-yaml" })
 	public ResponseEntity salvar(@RequestBody final AccountCredentialsVO accountCredentialsVO) {
-		log.info("fazendo a requisição para autenticação do usuario ");
 	
 		try {
-			
-			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(accountCredentialsVO.getUserName(),accountCredentialsVO.getPassword()));
+			//authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(accountCredentialsVO.getUserName(),accountCredentialsVO.getPassword()));
 			
 			User user = userSerive.findByUsernam(accountCredentialsVO.getUserName());
 			

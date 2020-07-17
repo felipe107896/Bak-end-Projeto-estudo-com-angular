@@ -12,7 +12,9 @@ import com.pessoa.model.User;
 public interface UserRepository  extends JpaRepository<User, Integer> {
 	
 	
-	@Query("SELECT u from User u WHERE u.userName = :userName")
+	@Query("SELECT u from User u WHERE u.username = :userName")
 	User findByUsername(@Param("userName") String username);
+	
+	
 
 }

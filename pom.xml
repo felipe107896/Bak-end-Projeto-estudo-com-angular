@@ -68,6 +68,17 @@
 				<version>1.16.16</version> 
 				<scope>provided</scope> 
 			</dependency>
+
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-core</artifactId>
+    <version>2.10.0.pr1</version>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-annotations</artifactId>
+    <version>2.9.4</version>
+</dependency>
 		<dependency>
    			 <groupId>io.springfox</groupId>
     		<artifactId>springfox-swagger2</artifactId>
@@ -123,8 +134,15 @@
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 </dependency>
-        
-    </dependencies>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>
+					spring-boot-configuration-processor
+				</artifactId>
+				<optional>true</optional>
+			</dependency>
+	</dependencies>
     
     <dependencyManagement>
     <dependencies>
@@ -152,31 +170,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-
-		<groupId>org.sonarsource.scanner.maven</groupId>
-
-			<artifactId>sonar-maven-plugin</artifactId>
-
-				<version>3.3.0.603</version>
-
-				<executions>
-
-				<execution>
-
-				<phase>verify</phase>
-
-				<goals>
-
-			<goal>sonar</goal>
-
-			</goals>
-
-			</execution>
-
-		</executions>
-
-		</plugin>  
+       
 		
 		
 			<plugin>
