@@ -6,6 +6,7 @@ services:
         build: C:\Users\ANTONIO\Documents\Bak-end-Projeto-estudo-com-angular
         ports:
             - "8888:8888"
+        command: mvn spring-boot:run 
         links:
             - db
         depends_on:
