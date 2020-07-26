@@ -1,11 +1,11 @@
 language: bash
 services: docker
-script: 
-- docker-compose build
-before_deploy:
- - echo "felipemassa10" | docker login --username "felipepatrocinio" --password-stdin
+script:
+ - docker-compose build
+before_deploy: 
+- echo "felipemassa10" | docker login --username "felipepatrocinio" --password-stdin
 deploy:
-    provider: script
+    provider: script 
     script: docker push felipepatrocinio/pessoa-application-postgres:postgres;
     on:
       branch: master
